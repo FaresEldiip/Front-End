@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> DOM</title>
+  <link rel="stylesheet" href="css.css" />
+</head>
+<body>
+  <h1 style="color: rgb(41, 47, 61); padding: 50px; background-color: rgb(182, 205, 255);">Modern DOM Playground</h1>
+
+  <div class="container">
+
+
+    <div class="card">
+      <h2>Element Creation</h2>
+      <button onclick="createDiv()">Create Div</button>
+      <button onclick="createText()">Create Text</button>
+      <button onclick="createHTML()">Create with HTML</button>
+      <button onclick="clearCreation()">Clear All</button>
+      <div id="creationOutput"></div>
+    </div>
+
+
+    <div class="card">
+      <h2>Element Removal</h2>
+      <button onclick="addElement()">Add Element</button>
+      <button onclick="removeLast()">Remove Last</button>
+      <button onclick="removeFirst()">Remove First</button>
+      <button onclick="clearRemoval()">Remove All</button>
+      <div id="removalOutput"></div>
+    </div>
+
+
+    <div class="card">
+      <h2>Element Styling</h2>
+      <button onclick="applyInline()">Inline Style</button>
+      <button onclick="toggleStyledClass()">Toggle Class</button>
+      <button onclick="getComputed()">Get Computed</button>
+      <button onclick="resetStyled()">Reset Styles</button>
+      <div id="styleOutput">This element will be styled</div>
+    </div>
+
+
+    <div class="card">
+      <h2>Attributes</h2>
+      <button onclick="setAttr()">Set Attributes</button>
+      <button onclick="getAttr()">Get Attributes</button>
+      <button onclick="removeAttr()">Remove Attributes</button>
+      <input id="attrInput" placeholder="Attribute Element" />
+      <div id="attrOutput"></div>
+    </div>
+
+
+    <div class="card">
+      <h2>Content Manipulation</h2>
+      <button onclick="setInnerHTML()">innerHTML</button>
+      <button onclick="setTextContent()">textContent</button>
+      <button onclick="insertAdjacent()">insertAdjacentHTML</button>
+      <button onclick="resetContent()">Reset</button>
+      <div id="contentOutput">Original content</div>
+    </div>
+
+
+    <div class="card">
+      <h2>Event Handling</h2>
+      <button onclick="addEvents()">Add Events</button>
+      <button onclick="removeEvents()">Remove Events</button>
+      <div id="eventOutput">Click or hover me!</div>
+    </div>
+
+
+    <div class="card">
+      <h2>DOM Traversal</h2>
+      <button onclick="showParent()">Parent</button>
+      <button onclick="showChildren()">Children</button>
+      <button onclick="showSibling()">Sibling</button>
+      <button onclick="querySelectorDemo()">Query Selector</button>
+      <div id="traversalOutput">
+        <div>Child 1</div>
+        <div>Child 2</div>
+        <div>Child 3</div>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <h2>Animation</h2>
+      <button onclick="moveBox()">Move</button>
+      <button onclick="colorBox()">Color</button>
+      <button onclick="transformBox()">Transform</button>
+      <button onclick="stopBox()">Stop</button>
+      <div id="animationBox"></div>
+    </div>
+
+
+    <div class="card">
+      <h2>Class Manipulation</h2>
+      <button onclick="addHighlight()">Add Class</button>
+      <button onclick="removeHighlight()">Remove Class</button>
+      <button onclick="toggleHighlight()">Toggle Class</button>
+      <button onclick="replaceHighlight()">Replace Class</button>
+      <div id="classOutput">Target Element</div>
+    </div>
+
+
+    <div class="card">
+      <h2>Form Manipulation</h2>
+      <input id="formInput" placeholder="Input text">
+      <select id="formSelect">
+        <option value="Red">Red</option>
+        <option value="Blue">Blue</option>
+      </select>
+      <button onclick="fillForm()">Fill</button>
+      <button onclick="getForm()">Get</button>
+      <button onclick="resetForm()">Reset</button>
+      <div id="formOutput"></div>
+    </div>
+
+
+    <div class="card">
+      <h2>Local Storage</h2>
+      <input id="storageInput" placeholder="Enter value">
+      <button onclick="storeItem()">Set</button>
+      <button onclick="getItem()">Get</button>
+      <button onclick="storeObj()">Store Object</button>
+      <button onclick="clearStorage()">Clear</button>
+      <div id="storageOutput"></div>
+    </div>
+
+
+    <div class="card">
+      <h2>Advanced DOM</h2>
+      <button onclick="cloneBox()">Clone</button>
+      <button onclick="templateBox()">Template</button>
+      <button onclick="observeBox()">Observer</button>
+      <div id="advancedOutput">Original Box</div>
+      <div id="cloneOutput"></div>
+    </div>
+
+  </div>
+
+  <script src="js.js"></script>
+</body>
+</html>
