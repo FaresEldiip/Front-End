@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DOM Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    nav a {
+      position: relative;
+      padding: 0 15px;
+      text-decoration: none;
+      color: #000;
+      transition: color 0.3s;
+    }
+    nav a.active::after,
+    nav a:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #0d6efd;
+    }
+    nav a:hover {
+      color: #0d6efd;
+    }
+    .hero {
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      color: #fff;
+      padding: 80px 20px;
+      text-align: center;
+      animation: fadeInDown 1s ease;
+    }
+    .product-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: fadeInUp 0.5s ease;
+    }
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    .logo {
+      height: 40px;
+      margin-right: 10px;
+    }
+    footer {
+      background: #222;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .about {
+      background: #f9f9f9;
+      padding: 60px 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="d-flex justify-content-between align-items-center p-3 border-bottom">
+    <div class="d-flex align-items-center">
+      <img src="https://via.placeholder.com/40x40?text=Logo" alt="Logo" class="logo"/>
+      <span class="fw-bold">DOM Shop</span>
+    </div>
+    <div>
+      <a href="#" class="active">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Modern Web Experiences</h1>
+    <p>Discover the power of pure JavaScript DOM manipulation with smooth animations and interactions.</p>
+    <button class="btn btn-light">Explore Products</button>
+  </section>
+
+  <!-- Products Section -->
+  <section class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>Our Products</h2>
+      <button id="addProductBtn" class="btn btn-primary">Add Product</button>
+    </div>
+    <div class="row" id="productsContainer">
+      <!-- Example Cards -->
+      <div class="col-md-4">
+        <div class="product-card">
+          <h6 class="text-primary">JavaScript</h6>
+          <h5>JavaScript Mastery Course</h5>
+          <p><strong>$99.99</strong></p>
+          <p>Comprehensive course covering modern JavaScript patterns and best practices.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="product-card">
+          <h6 class="text-primary">CSS</h6>
+          <h5>CSS Animations Guide</h5>
+          <p><strong>$49.99</strong></p>
+          <p>Learn to create stunning animations using only CSS.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="product-card">
+          <h6 class="text-primary">DOM</h6>
+          <h5>DOM Manipulation Handbook</h5>
+          <p><strong>$39.99</strong></p>
+          <p>The complete guide to vanilla JavaScript DOM manipulation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>About Us</h2>
+    <p>We’re a passionate team dedicated to creating beautiful web experiences without relying on heavy frameworks. Our focus is on core web technologies that deliver exceptional performance.</p>
+    <p>By mastering vanilla JavaScript, CSS, and HTML, we build lightweight, fast, and accessible websites that work everywhere.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <h5>DOM Shop</h5>
+    <div class="mb-2">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <p>© 2025 DOM Shop. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="productForm">
+          <div class="modal-header">
+            <h5 class="modal-title">Add New Product</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Category</label>
+              <input type="text" class="form-control" id="productCategory" required/>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Title</label>
+              <input type="text" class="form-control" id="productTitle" required/>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Price</label>
+              <input type="number" class="form-control" id="productPrice" required/>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Add Product</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+
+    const addProductBtn = document.getElementById('addProductBtn');
+    const productModal = new bootstrap.Modal(document.getElementById('productModal'));
+    const productForm = document.getElementById('productForm');
+    const productsContainer = document.getElementById('productsContainer');
+
+    addProductBtn.addEventListener('click', () => {
+      productForm.reset();
+      productModal.show();
+    });
+
+    productForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const category = document.getElementById('productCategory').value;
+      const title = document.getElementById('productTitle').value;
+      const price = document.getElementById('productPrice').value;
+      const description = document.getElementById('productDescription').value;
+
+      const col = document.createElement('div');
+      col.className = 'col-md-4';
+      col.innerHTML = `
+        <div class="product-card">
+          <h6 class="text-primary">${category}</h6>
+          <h5>${title}</h5>
+          <p><strong>$${parseFloat(price).toFixed(2)}</strong></p>
+          <p>${description}</p>
+        </div>
+      `;
+      productsContainer.appendChild(col);
+      productModal.hide();
+    });
+  </script>
+
+</body>
+</html>
